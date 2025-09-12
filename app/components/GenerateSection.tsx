@@ -14,28 +14,29 @@ const features = [
 
 export default function GenerateSection() {
   return (
-    <section className="px-6 py-8">
+    <section className="px-6 py-8 ">
         <div className="flex justify-between items-center">
-        <h3 className="text-xl font-semibold mb-4">Generate</h3>
-        <div className="flex gap-2 items-center text-center"><ChevronDown size={16}/> <p>Show all</p> </div>
+        <h3 className="text-2xl font-bold mb-4">Generate</h3>
+        <div className="flex gap-1 items-center text-center text-blue-500 hover:cursor-pointer font-bold">
+            <ChevronDown size={16}/> <p>Show all</p> </div>
       </div>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1  gap-4">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1  gap-2 dark:ga-4">
         {features.map((f, i) => {
             const Icon = f.image
             return(
-          <div key={i} className="flex justify-between  p-4 border rounded-xl dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+          <div key={i} className="flex justify-between  p-4 dark:bodrer rounded-xl dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
             <div className="flex gap-2 items-center">
-                <div className="flex h-13 px-3 bg-blue-400 items-center rounded-xl"><Icon size={30} /></div>
+                <div className="flex h-13 px-3 bg-blue-400 items-center rounded-xl"><Icon size={30} className="text-white dark:text-black"/></div>
                 <div>
             <div className="flex gap-2 items-center">
               <h4 className="font-bold">{f.name}</h4>
               {f.tag && <span className="text-xs bg-blue-500 text-white px-2 py-0.5 rounded-lg">{f.tag}</span>}
             </div>
-            <p className="text-sm mt-1 w-[80%]">{f.desc}</p>
+            <p className="text-sm mt-1 w-[80%] text-gray-600">{f.desc}</p>
             </div>
             </div>
             <div className="flex items-center">
-            <button className="bg-gray-600 px-3 py-1 rounded-full">Open</button>
+            <button className="dark:bg-gray-600 bg-gray-200 px-5 py-1 rounded-full text-center font-semibold hover:cursor-pointer hover:scale-105 transition">Open</button>
              </div>
           </div>
         )})}

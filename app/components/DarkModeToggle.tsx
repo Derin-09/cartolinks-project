@@ -7,8 +7,23 @@ export default function DarkModeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => setMounted(true), [])
-  if (!mounted) return null
+  useEffect(() => {
+  setMounted(true);
+  console.log("Mounted, theme:", theme, "localStorage:", localStorage.getItem("theme"));
+  if (localStorage.getItem("theme") === "dark") {
+    setTheme("light"); // Reset to light if stuck
+  }
+}, []);
+
+//   useEffect(() => {
+//   console.log("Current theme:", theme);
+//   console.log("localStorage theme:", localStorage.getItem("theme"));
+// }, [theme]);
+
+//   useEffect(() => setMounted(true), [])
+//   if (!mounted) return null
+
+  
 
   return (
     <button

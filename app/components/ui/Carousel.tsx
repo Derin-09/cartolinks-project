@@ -23,14 +23,11 @@ const Carousel = ({ props }: { props: CarouselType }) => {
   {/* Overlay BELOW content */}
   <div className="absolute inset-0 bg-black/70 z-0 pointer-events-none" />
 
-  {/* Content */}
   <div className="relative z-10 flex flex-col justify-between h-full p-6">
-    {/* Centered title */}
     <div className="flex justify-center items-center flex-1">
       <h2 className="text-6xl font-bold">{props.title}</h2>
     </div>
 
-    {/* Subtitle + details at the bottom */}
     <div className="flex justify-between items-end">
       <div className="w-[70%]">
         <h3 className="text-2xl font-bold">{props.subtitle}</h3>

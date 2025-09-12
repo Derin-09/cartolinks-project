@@ -1,5 +1,22 @@
  @import "tailwindcss" ;
 
 
+.swiper-pagination-custom .swiper-pagination-bullet {
+  background: #d1d5db; /* gray-300 */
+  opacity: 1;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  background: #000; /* black in light mode */
+}
+
+/* Dark mode */
+.dark .swiper-pagination-custom .swiper-pagination-bullet {
+  background: #6b7280; /* gray-500 */
+}
+
+.dark .swiper-pagination-custom .swiper-pagination-bullet-active {
+  background: #fff; /* white in dark mode */
+}
 
 

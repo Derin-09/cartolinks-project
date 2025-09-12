@@ -2,12 +2,15 @@ import Navbar from "./components/Navbar"
 import HeroCarousel from "./components/HeroCarousel"
 import GenerateSection from "./components/GenerateSection"
 import Footer from "./components/Footer"
+import Gallery from "./components/Gallery"
 
 export default function Home() {
   return (
-    <main className="py-20">
+    <main className="pt-20">
       <HeroCarousel />
       <GenerateSection />
+      <Gallery />
+      <Footer />
     </main>
   )
 }
