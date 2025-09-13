@@ -10,21 +10,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   //   document.documentElement.classList.remove("dark");
   //   document.documentElement.style.colorScheme = "light";
   // }, []);
-//   useEffect(() => {
-//   console.log("RootLayout hydrated, html class:", document.documentElement.className);
-// }, []);
+  //   useEffect(() => {
+  //   console.log("RootLayout hydrated, html class:", document.documentElement.className);
+  // }, []);
   return (
-    <html lang="en" style={{ colorScheme: "light" }} >
+    <html lang="en" style={{ colorScheme: "light" }} suppressHydrationWarning>
       <body className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 relative">
-        <ThemeProvider 
-        attribute="class" 
-        defaultTheme="light" 
-        enableSystem={false}>
+        {/* <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}> */}
           <div className="fixed inset-0 z-50 h-fit">
-          <Navbar/>
+            <Navbar />
           </div>
           {children}
-        </ThemeProvider>
+          <Footer />
+        {/* </ThemeProvider> */}
       </body>
     </html>
   )

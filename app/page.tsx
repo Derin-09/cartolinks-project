@@ -10,7 +10,6 @@ export default function Home() {
       <HeroCarousel />
       <GenerateSection />
       <Gallery />
-      <Footer />
     </main>
   )
 }

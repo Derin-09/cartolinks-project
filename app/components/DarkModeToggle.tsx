@@ -27,10 +27,11 @@ export default function DarkModeToggle() {
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    //   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="p-2 rounded-xl bg-gray-200 dark:bg-gray-800 hover:scale-105 transition"
     >
       {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      {/* <Sun size={18} /> */}
     </button>
   )
 }
