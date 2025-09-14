@@ -1,6 +1,49 @@
  @import "tailwindcss" ;
 
+ * {
+  transition: all 0.3s ease-in-out;
+ }
 
+ .dark body {
+  background: #030713;
+ }
+
+ /*******************************************NAVBAR***************************************************************************/
+
+ .dark nav {
+  background: #030713;
+  border-bottom: 1px #1e2939;
+ }
+
+.dark .logo {
+  color: white;
+}
+
+.dark .menu {
+  background: #1e2939;
+ }
+
+ .dark .menu-icons {
+  color: white;
+ }
+
+ .dark .menu-icons:hover{
+  background: #364153;
+ }
+
+.dark .gallery,
+.dark .support,
+.dark .bell,
+.dark .darkmode {
+  background:  #1e2939;
+  color: white;
+ }
+  /*******************************************CAROUSEL***************************************************************************/
+
+  /* .carousel-text {
+  line-clamp: 2;
+
+  } */
 .swiper-pagination-custom .swiper-pagination-bullet {
   background: #d1d5db; /* gray-300 */
   opacity: 1;
@@ -19,4 +62,31 @@
   background: #fff; /* white in dark mode */
 }
 
+.dark .swiper-button-prev-custom,
+.dark .swiper-button-next-custom {
+  background: #1e2939;
+  color: white;
+}
 
+  /***********************************GENERATE SECTION*****************************************************************/
+.dark .generate {
+  color: white;
+}
+
+.dark .generate-section:hover {
+  background: #1e2939;
+}
+
+.dark .generate-section button{
+  background: #4A5565; 
+}
+
+
+  /***********************************GALLERY*****************************************************************/
+.dark .gallery-section {
+  color: white;
+}
+
+.dark .gallery-section button{
+  background: #1e2939;
+}

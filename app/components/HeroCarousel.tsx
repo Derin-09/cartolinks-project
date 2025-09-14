@@ -54,7 +54,11 @@ export default function HeroCarousel() {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
-        slidesPerView={1.6}
+        slidesPerView={1}
+        breakpoints={{
+            768: {slidesPerView: 1},
+            1024: {slidesPerView: 1.6}
+        }}
         navigation={{
           nextEl: ".swiper-button-next-custom",
           prevEl: ".swiper-button-prev-custom",
@@ -65,7 +69,7 @@ export default function HeroCarousel() {
         }}
         autoplay={{ delay: 4000 }}
         loop
-        className="rounded-2xl overflow-hidden"
+        className="rounded-2xl overflow-hidden mb-3"
       >
         {carouselContent.map((item, idx) => (
           <SwiperSlide key={idx} className="h-full">
@@ -74,20 +78,33 @@ export default function HeroCarousel() {
         ))}
       </Swiper>
       
-      <div className=" inset-x-0 flex justify-center items-center">
-        {/* Pagination Dots */}
+      {/* <div className=" inset-x-0 flex justify-center items-center">
+        Pagination Dots
         <div className="swiper-pagination-custom"></div>
 
-        {/* Navigation Arrows */}
-        <div className="flex gap-2 absolute right-6 bottom-0">
-          <button className="swiper-button-prev-custom w-8 h-8 flex items-center justify-center rounded-md bg-gray-200 text-black dark:bg-gray-800 dark:text-white">
+        Navigation Arrows
+        <div className="flex gap-2 absolute right-6 bottom-0 text-3xl">
+          <button className="swiper-button-prev-custom w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 text-black ">
             ‹
           </button>
-          <button className="swiper-button-next-custom w-8 h-8 flex items-center justify-center rounded-md bg-gray-200 text-black dark:bg-gray-800 dark:text-white">
+        <button className="swiper-button-next-custom w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 text-black ">
             ›
           </button>
         </div>
-      </div>
+      </div> */}
+
+      <div className="absolute bottom-0 left-0 right-0 flex justify-between items-center px-6 text-3xl">
+  <div className="swiper-pagination-custom flex justify-center" />
+  <div className="flex gap-2">
+    <button className="swiper-button-prev-custom w-8 h-8 flex items-center justify-center rounded-full hover:cursor-pointer bg-gray-200 text-black text-lg">
+  <span className="leading-none">‹</span>
+</button>
+<button className="swiper-button-next-custom w-8 h-8 flex items-center justify-center rounded-full hover:cursor-pointer bg-gray-200 text-black text-lg">
+  <span className="leading-none">›</span>
+</button>
+  </div>
+</div>
+
     </section>
   )
 }
