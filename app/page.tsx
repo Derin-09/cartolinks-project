@@ -1,6 +1,6 @@
-import HeroCarousel from "./components/HeroCarousel"
-import GenerateSection from "./components/GenerateSection"
-import Gallery from "./components/Gallery"
+import Gallery from "@/components/Gallery";
+import GenerateSection from "@/components/GenerateSection";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Home() {
   return (
