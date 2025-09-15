@@ -12,7 +12,6 @@
 
  .dark nav {
   background: #030713;
-  border-bottom: 1px #1e2939;
  }
 
 .dark .logo {
@@ -40,26 +39,22 @@
  }
   /*******************************************CAROUSEL***************************************************************************/
 
-  /* .carousel-text {
-  line-clamp: 2;
-
-  } */
 .swiper-pagination-custom .swiper-pagination-bullet {
-  background: #d1d5db; /* gray-300 */
+  background: #d1d5db; 
   opacity: 1;
 }
 
 .swiper-pagination-custom .swiper-pagination-bullet-active {
-  background: #000; /* black in light mode */
+  background: #000; 
 }
 
-/* Dark mode */
+
 .dark .swiper-pagination-custom .swiper-pagination-bullet {
-  background: #6b7280; /* gray-500 */
+  background: #6b7280; 
 }
 
 .dark .swiper-pagination-custom .swiper-pagination-bullet-active {
-  background: #fff; /* white in dark mode */
+  background: #fff;
 }
 
 .dark .swiper-button-prev-custom,

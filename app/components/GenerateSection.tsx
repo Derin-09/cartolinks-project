@@ -1,4 +1,4 @@
-import { ChevronDown, Image, Video, Scissors, Mic, Wand2, Brain, Edit, Wand, LucidePersonStanding } from "lucide-react"
+import { ChevronDown, Image, Video, Mic, Wand2, Brain, Edit, Wand, LucidePersonStanding } from "lucide-react"
 
 
 const features = [
