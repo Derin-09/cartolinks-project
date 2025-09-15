@@ -2,10 +2,10 @@
 
 > ⚠️ This project is an internship assignment and is **not affiliated with Krea AI**.  
 
-This project is a **pixel-perfect recreation** of the Krea AI frontend (based on the provided screenshot) built using **Next.js**, **TypeScript**, and **Tailwind CSS**.  
+This project is a recreation of the Krea AI frontend (based on the provided screenshot) built using **Next.js**, **TypeScript**, and **Tailwind CSS**.  
 
 It implements:  
--  Pixel-perfect UI (desktop responsive)  
+-  Pixel-perfect UI (mobile and desktop responsive)  
 -  Dark / Light mode toggle with `next-themes`  
 -  Optimized images with `next/image`  
 -  Responsive layout for different screen sizes  
