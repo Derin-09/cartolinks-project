@@ -1,10 +1,75 @@
 "use client"
 import { useState, useEffect } from "react"
 import DarkModeToggle from "./DarkModeToggle"
-import { Bell, House, ImageMinus, Video, WandSparkles, Folder, ImageUp, Headset, ChevronDown, X, Menu } from 'lucide-react'
+import { Bell, House, Images, Video, WandSparkles, TestTubeDiagonal, Folder, Headset, ChevronDown, X, Menu } from 'lucide-react'
 import NavbarLogo from "./ui/NavbarLogo"
+import { motion, AnimatePresence } from 'framer-motion'
+import Link from "next/link"
 
-const icons = [House, ImageMinus, Video, WandSparkles, Folder]
+const mobileNavItems = [
+    {
+        text: 'Home',
+        icon: House
+    },
+    {
+        text: 'Generate Image',
+        icon: Images
+    },
+    {
+        text: 'Generate Video',
+        icon: Video
+    },
+    {
+        text: 'Experiment LLM',
+        icon: TestTubeDiagonal
+    },
+    {
+        text: 'Modify Images',
+        icon: WandSparkles
+    },
+    {
+        text: 'Explore Projects',
+        icon: Folder
+    },
+    {
+        text: 'Gallery',
+        icon: Images
+    },
+    {
+        text: 'Support',
+        icon: Headset
+    },
+    {
+        text: 'Notifications',
+        icon: Bell
+    },
+]
+const navIcons = [
+    {
+        text: 'Home',
+        icon: House
+    },
+    {
+        text: 'Generate Image',
+        icon: Images
+    },
+    {
+        text: 'Generate Video',
+        icon: Video
+    },
+    {
+        text: 'Experiment LLM',
+        icon: TestTubeDiagonal
+    },
+    {
+        text: 'Modify Images',
+        icon: WandSparkles
+    },
+    {
+        text: 'Explore Projects',
+        icon: Folder
+    },
+]
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false)
@@ -47,46 +112,49 @@ export default function Navbar() {
                     <div>
 
                         <div className="flex gap-2 md:gap-4 text-black ">
-                            <button className=" gallery flex gap-2 items-center text-center hover:cursor-pointer hover:shadow-lg px-4 py-1 rounded-xl bg-gray-200 hover:scale-105  transition group relative xl:static">
-                                <ImageUp size={18} className="" />
-                                <p className="text-center hidden group-hover:block absolute bottom-full left-1/2 xl:-translate-x-0 md:-translate-x-1/2 
-               xl:static xl:block pointer-events-none md:hover:text-white">
-                                    Gallery
-                                </p>
-
-                            </button>
-                            <button className="support flex gap-2 items-center text-center  hover:cursor-pointer hover:shadow-lg  px-4 py-1 rounded-xl bg-gray-200    hover:scale-105 transition group relative xl:static ">
-                                <Headset size={18} className="" />
-                                <p className="text-center xl:block hidden group-hover:block md:absolute bottom-full left-1/2  xl:-translate-x-0 md:-translate-x-1/2 xl:static pointer-events-none md:hover:text-white"> Support </p>
-                            </button>
                             <DarkModeToggle />
-                            <button className="bell p-2 rounded-xl bg-gray-200 hover:scale-105 transition hover:cursor-pointer hover:shadow-lg" ><Bell size={18} /></button>
-                            
-                        <button onClick={() => setIsClicked(!isClicked)} className="bell p-2 rounded-xl bg-gray-200 hover:scale-105 transition hover:cursor-pointer hover:shadow-lg" >
-                            {isClicked ?
-                                <X /> : <Menu />
-                            }
-                        </button>
-                        <div className="md:flex items-center hidden "> 
-                            <div className="bg-gray-600 w-8 h-8 rounded-full" />
+
+                            <button onClick={() => setIsClicked(!isClicked)} className="bell p-2 rounded-xl bg-gray-50 hover:scale-105 transition hover:cursor-pointer hover:shadow-lg" >
+                                <Menu />
+                            </button>
+                            <div className="md:flex items-center hidden ">
+                                <div className="bg-gray-600 w-8 h-8 rounded-full" />
                             </div>
                         </div>
 
 
-
-                        {isClicked && (
-                            <div className="menu absolute md:right-16 right-2 top-15 flex flex-col gap-2 bg-gray-200 md:p-1 rounded-xl items-center">
-                                {icons.map((item, idx) => {
-                                    const Icon = item
-                                    return (
-                                        <div key={idx} className="menu-icons py-1 px-2 md:px-3 xl:py-2 hover:rounded-xl hover:cursor-pointer text-black hover:bg-white">
-                                            <Icon />
+                        <AnimatePresence>
+                            {isClicked && (
+                                <motion.div
+                                    initial={{ x: "100%" }}
+                                    animate={{ x: 0 }}
+                                    exit={{ x: "100%" }}
+                                    transition={{ type: "tween", duration: 0.4 }}
+                                    className="fixed inset-0 z-50"
+                                >
+                                    <nav className=" flex flex-col md:hidden gap-[5%] p-6 pt-10 w-screen h-screen bg-white text-black">
+                                        <div className="xButton" onClick={() => setIsClicked(false)}>
+                                            <X />
                                         </div>
-                                    )
-                                })}
-                            </div>
-                        )}
-                        
+                                        <section className="mobileNavIcons flex flex-col gap-10 items-cent h-full text-black">
+                                            {mobileNavItems.map((item, idx) => {
+                                                const Icon = item.icon
+                                                return (
+                                                    <div onClick={() => setIsClicked(false)} key={idx}>
+                                                        <Link href={''}>
+                                                            <div className="flex  gap-3 items-center ">
+                                                                <Icon />
+                                                                <p className="text-[24px] ">{item.text}</p>
+                                                            </div>
+                                                        </Link>
+                                                    </div>
+                                                )
+                                            })}
+                                        </section>
+                                    </nav>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
 
                 </nav>) : (
@@ -106,32 +174,35 @@ export default function Navbar() {
                             </div>
                         </div>
                     </div>
-                    <div className="menu xl:p-2 xl:space-x-5 p-1 rounded-xl bg-gray-200 flex items-center">
-                        {icons.map((item, idx) => {
-                            const Icon = item
+                    <div className="menu xl:p-2 xl:space-x-5 p-1 rounded-2xl bg-gray-50 flex items-center">
+                        {navIcons.map((item, idx) => {
+                            const Icon = item.icon
                             return (
-                                <div key={idx} className="menu-icons py-1 px-3 xl:py-2 hover:rounded-xl hover:cursor-pointer text-black hover:bg-white">
+                                <div key={idx} className="menu-icons group relative py-1 px-3 xl:py-2 hover:rounded-xl hover:cursor-pointer text-black hover:bg-white">
                                     <Icon />
+                                    <p
+                                        className="text-center whitespace-nowrap hidden group-hover:block absolute top-full left-1/2 -translate-x-1/2 pointer-events-none text-white bg-black px-2 py-1 rounded-md transition-all duration-200 scale-95 group-hover:scale-100"
+                                    >  {item.text} </p>
                                 </div>
                             )
                         })}
                     </div>
 
                     <div className="flex  gap-4 text-black ">
-                        <button className=" gallery flex gap-2 items-center text-center hover:cursor-pointer hover:shadow-lg px-4 py-1 rounded-xl bg-gray-200 hover:scale-105  transition group relative xl:static">
-                            <ImageUp size={18} className="" />
+                        <button className=" gallery flex gap-2 items-center text-center hover:cursor-pointer hover:shadow-lg px-4 py-1 rounded-xl bg-gray-50 hover:scale-105  transition group relative xl:static">
+                            <Images size={18} className="" />
                             <p className="text-center hidden group-hover:block absolute bottom-full left-1/2 xl:-translate-x-0 md:-translate-x-1/2 
                xl:static xl:block pointer-events-none md:hover:text-white">
                                 Gallery
                             </p>
 
                         </button>
-                        <button className="support flex gap-2 items-center text-center  hover:cursor-pointer hover:shadow-lg  px-4 py-1 rounded-xl bg-gray-200    hover:scale-105 transition group relative xl:static ">
+                        <button className="support flex gap-2 items-center text-center  hover:cursor-pointer hover:shadow-lg  px-4 py-1 rounded-xl bg-gray-50    hover:scale-105 transition group relative xl:static ">
                             <Headset size={18} className="" />
                             <p className="text-center xl:block hidden group-hover:block md:absolute bottom-full left-1/2  xl:-translate-x-0 md:-translate-x-1/2 xl:static pointer-events-none md:hover:text-white"> Support </p>
                         </button>
                         <DarkModeToggle />
-                        <button className="bell p-2 rounded-xl bg-gray-200 hover:scale-105 transition hover:cursor-pointer hover:shadow-lg" ><Bell size={18} /></button>
+                        <button className="bell p-2 rounded-xl bg-gray-50 hover:scale-105 transition hover:cursor-pointer hover:shadow-lg" ><Bell size={18} /></button>
                         <div className="bg-gray-600 w-8 h-8 rounded-full" />
                     </div>
                 </nav>)}

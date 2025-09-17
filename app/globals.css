@@ -5,13 +5,13 @@
  }
 
  .dark body {
-  background: #030713;
+  background: #111015;
  }
 
  /*******************************************NAVBAR***************************************************************************/
 
  .dark nav {
-  background: #030713;
+  background: #111015;
  }
 
 .dark .logo {
@@ -19,10 +19,12 @@
 }
 
 .dark .menu {
-  background: #1e2939;
+  background: #4a5565;
  }
 
- .dark .menu-icons {
+ .dark .menu-icons,
+ .dark .mobileNavIcons,
+ .dark .xButton {
   color: white;
  }
 
@@ -34,7 +36,7 @@
 .dark .support,
 .dark .bell,
 .dark .darkmode {
-  background:  #1e2939;
+  background:  #4a5565;
   color: white;
  }
   /*******************************************CAROUSEL***************************************************************************/
@@ -83,5 +85,5 @@
 }
 
 .dark .gallery-section button{
-  background: #1e2939;
+  background: #4a5565;
 }
