@@ -4,8 +4,8 @@ import Mobbins from '@/public/images/mobbins.png'
 
 export default function Footer() {
     return (
-        <footer className="flex justify-between text-white bg-neutral-800 px-6 py-4 text-xl md:text-2xl lg:text-4xl">
-            <div className="flex space-x-3 items-center">
+        <footer className="flex justify-between text-white bg-neutral-800 md:px-6 px-4 py-4 text-lg md:text-2xl lg:text-4xl">
+            <div className="flex  space-x-3 items-center">
                 <div className="flex items-center">
                 <Image src={Logo} width={40} height={40} alt="" className="rounded-lg"/>
                 </div>
@@ -13,7 +13,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center lg:text-3xl font-semibold ">
                 <div className="flex items-center">curated by</div>
-                 <Image src={Mobbins} alt="" className="md:w-48 rounded-lg"/>
+                 <Image src={Mobbins} alt="" className="md:w-48 w-32 rounded-lg"/>
                  </div>
         </footer>
     )

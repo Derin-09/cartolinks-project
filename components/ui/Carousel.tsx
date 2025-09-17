@@ -26,16 +26,16 @@ const Carousel = ({ props }: { props: CarouselType }) => {
   <div className="relative z-10 flex flex-col justify-between h-full p-6">
         <p className="text-sm">{props.top}</p>
     <div className="flex justify-center items-center flex-1">
-      <h2 className="text-6xl font-bold">{props.title}</h2>
+      <h2 className="md:text-6xl text-3xl font-bold">{props.title}</h2>
     </div>
 
     <div className="flex justify-between items-end">
       <div className="w-[70%]">
-        <h3 className="text-2xl font-bold">{props.subtitle}</h3>
+        <h3 className="md:text-2xl text-xl  font-bold">{props.subtitle}</h3>
         <p className="line-clamp-2 mt-2">{props.details}</p>
       </div>
       <div className="flex items-center">
-        <button className="mt-4 bg-white text-black font-semibold px-4 py-2 rounded-full transition hover:bg-gray-200 hover:scale-105">
+        <button className="mt-4 bg-white text-black md:text-base text-sm font-semibold md:px-4 px-2 py-2 rounded-full transition hover:bg-gray-200 hover:scale-105">
           {props.buttonText}
         </button>
       </div>
