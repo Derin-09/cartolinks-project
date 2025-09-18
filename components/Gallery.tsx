@@ -3,7 +3,7 @@ import {  Scale, ShoppingBag} from "lucide-react"
 
 export default function Gallery() {
     return (
-        <section className="gallery-section px-6 py-8 text-black mb-4">
+        <section className="gallery-section px-6  text-black mb-4">
             <div className="flex justify-between items-center  ">
                 <h3 className="text-2xl font-bold">Gallery</h3>
                 <div className="flex gap-2 items-center text-center">

@@ -101,13 +101,6 @@ export default function Navbar() {
                 <nav className="flex items-center justify-between px-6 py-4 bg-white ">
                     <div className="flex items-center gap-2 md:gap-4 font-bold text-xl">
                         <NavbarLogo />
-                        <div className="flex md:gap-2">
-                            <div className="bg-gray-600 w-8 h-8 rounded-full" />
-                            <div className="flex gap-2 items-center text-gray-500">
-                                <p className="text-xl hidden md:block">benevolentrimblebat</p>
-                                <ChevronDown className="hover:cursor-pointer md:mt-1 xl:mt-0" />
-                            </div>
-                        </div>
                     </div>
                     <div>
 
@@ -123,36 +116,45 @@ export default function Navbar() {
                         </div>
 
 
-                        <AnimatePresence>
+                        <AnimatePresence >
                             {isClicked && (
-                                <motion.div
-                                    initial={{ x: "100%" }}
-                                    animate={{ x: 0 }}
-                                    exit={{ x: "100%" }}
-                                    transition={{ type: "tween", duration: 0.4 }}
-                                    className="fixed inset-0 z-50"
-                                >
-                                    <nav className=" flex flex-col md:hidden gap-[5%] p-6 pt-10 w-screen h-screen bg-white text-black">
-                                        <div className="xButton" onClick={() => setIsClicked(false)}>
-                                            <X />
-                                        </div>
-                                        <section className="mobileNavIcons flex flex-col gap-10 items-cent h-full text-black">
-                                            {mobileNavItems.map((item, idx) => {
-                                                const Icon = item.icon
-                                                return (
-                                                    <div onClick={() => setIsClicked(false)} key={idx}>
-                                                        <Link href={''}>
-                                                            <div className="flex  gap-3 items-center ">
-                                                                <Icon />
-                                                                <p className="text-[24px] ">{item.text}</p>
-                                                            </div>
-                                                        </Link>
-                                                    </div>
-                                                )
-                                            })}
-                                        </section>
-                                    </nav>
-                                </motion.div>
+                                <div className="fixed inset-0 z-50 w-full bg-black/50">
+                                    <motion.div
+                                        initial={{ x: "100%" }}
+                                        animate={{ x: "20%" }}
+                                        exit={{ x: "100%" }}
+                                        transition={{ type: "tween", duration: 0.4 }}
+                                        className=" bg-black"
+                                    >
+                                        <nav className=" flex flex-col md:hidden gap-[5%] p-6 pt-10 w-screen h-screen bg-white text-black">
+                                            <div className="xButton" onClick={() => setIsClicked(false)}>
+                                                <X />
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <div className="bg-gray-600 w-8 h-8 rounded-full" />
+                                                <div className="flex gap-2 items-center text-gray-500">
+                                                    <p className="text-">benevolentrimblebat</p>
+                                                    <ChevronDown className="hover:cursor-pointer md:mt-1 xl:mt-0" />
+                                                </div>
+                                            </div>
+                                            <section className="mobileNavIcons flex flex-col gap-10 items-cent h-full text-black">
+                                                {mobileNavItems.map((item, idx) => {
+                                                    const Icon = item.icon
+                                                    return (
+                                                        <div onClick={() => setIsClicked(false)} key={idx}>
+                                                            <Link href={''}>
+                                                                <div className="flex  gap-3 items-center ">
+                                                                    <Icon />
+                                                                    <p className="text-[16px] ">{item.text}</p>
+                                                                </div>
+                                                            </Link>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </section>
+                                        </nav>
+                                    </motion.div>
+                                </div>
                             )}
                         </AnimatePresence>
                     </div>
